@@ -19,7 +19,6 @@ namespace Demo.BusinessLogic.Services
         {
             var departments = _departmentRepository.GetAll();
 
-
             return departments.Select(D => D.ToDepartmentDto());
         }
 
@@ -34,7 +33,6 @@ namespace Demo.BusinessLogic.Services
         {
             var department = _departmentRepository.GetById(id);
 
-
             return department is null ? null : department.ToDepartmentsDetailDto();
 
 
@@ -46,6 +44,7 @@ namespace Demo.BusinessLogic.Services
         public int AddDepartment(CreatedDepartmentDto createdDepartmentDto)
         {
             var department = createdDepartmentDto.ToEntity();
+
             return _departmentRepository.Add(department);
         }
 
